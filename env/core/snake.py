@@ -30,13 +30,15 @@ class Snake:
         """
         # Check if action can be performed (do nothing if in the same direction or opposite)
         # Example: if snake looks left, pressing "left" or "right" buttons should change nothing
-        if () and ():
+        if abs(action - self.current_direction_index)!= 2 and action != self.current_direction_index:
             self.current_direction_index = action
         # Remove tail (can be implemented in 1 line)
-        tail = 
-        self.blocks = 
+        tail = self.blocks[-1]
+        self.blocks = self.blocks[0:-1]
         # Create new head
-        new_head = 
+        head = np.array(self.blocks[0])
+        move = DIRECTIONS[self.current_direction_index]
+        new_head = tuple(head + move)
         # Add new head
         # Note: all Snake's coordinates should be tuples (X, Y)
         self.blocks = [new_head] + self.blocks
